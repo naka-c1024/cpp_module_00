@@ -11,7 +11,7 @@ DEBUG_FLAGS	:=	-g -fsanitize=address -fsanitize=undefined
 # env | grep Malloc
 NO_BUILTIN_FLAGS	:=	-fno-builtin
 
-SRCS	:=	megaphone.cpp
+SRCS	:=	main.cpp
 OBJS	:=	$(SRCS:.cpp=.o)
 
 $(NAME)	: $(OBJS)
