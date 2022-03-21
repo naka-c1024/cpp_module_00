@@ -1,4 +1,4 @@
-NAME	:=	megaphone
+NAME	:=	phonebook
 CXX		:=	c++
 RM		:=	rm -f
 CXXFLAGS	:=	-Wall -Wextra -Werror -std=c++98
@@ -11,7 +11,7 @@ DEBUG_FLAGS	:=	-g -fsanitize=address -fsanitize=undefined
 # env | grep Malloc
 NO_BUILTIN_FLAGS	:=	-fno-builtin
 
-SRCS	:=	main.cpp
+SRCS	:=	main.cpp Contact.cpp Phonebook.cpp
 OBJS	:=	$(SRCS:.cpp=.o)
 
 $(NAME)	: $(OBJS)
