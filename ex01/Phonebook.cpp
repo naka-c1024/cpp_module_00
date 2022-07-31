@@ -118,7 +118,7 @@ void	Phonebook::launch()
 	{
 		if (line == "ADD")
 		{
-			if (cnt > 7) // 0始まりだから
+			if (cnt > 7)
 			{
 				std::cout << "can't store more than 8 contacts!" << std::endl;
 				std::cout << "then delete the oldest contact" << std::endl;
