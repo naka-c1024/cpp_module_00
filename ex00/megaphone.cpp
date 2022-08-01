@@ -11,10 +11,8 @@ int	main(int argc, char **argv)
 		for (size_t i = 1; argv[i]; i++)
 		{
 			for (size_t j = 0; argv[i][j]; j++)
-				argv[i][j] = toupper(argv[i][j]);
+				argv[i][j] = std::toupper(argv[i][j]);
 			std::cout << argv[i];
-			if (argv[i + 1])
-				std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
