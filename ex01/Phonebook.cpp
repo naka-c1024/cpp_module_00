@@ -107,6 +107,7 @@ void	Phonebook::display_contact_info(size_t cnt)
 			std::cout << "Bad argument" << std::endl;
 		std::cout << "enter the index number (or exit): ";
 	}
+	detect_err_flg();
 }
 
 void	Phonebook::search_command(size_t cnt)
