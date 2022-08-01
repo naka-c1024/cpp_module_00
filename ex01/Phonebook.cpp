@@ -1,6 +1,21 @@
 #include "Phonebook.hpp"
 
-bool	Phonebook::add_command(size_t cnt)
+// the stream's error state flags : eofbit, failbit, badbit
+void	Phonebook::detect_err_flg(void)
+{
+	if (std::cin.eof() == true)
+	{
+		std::cout << "detected eof -> bye!" << std::endl;
+		std::exit(EXIT_SUCCESS);
+	}
+	else if (std::cin.good() != true)
+	{
+		std::cerr << "detected error bit!!" << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+}
+
+void	Phonebook::add_command(size_t cnt)
 {
 	std::string	line;
 	std::cout << "Write a first name." << std::endl;
@@ -9,31 +24,35 @@ bool	Phonebook::add_command(size_t cnt)
 		contact[cnt].set_first_name(line);
 		std::cout << "Thank you" << std::endl;
 	}
+	detect_err_flg();
 	std::cout << "Write a last name." << std::endl;
 	if (std::getline(std::cin, line))
 	{
 		contact[cnt].set_last_name(line);
 		std::cout << "Thank you" << std::endl;
 	}
+	detect_err_flg();
 	std::cout << "Write a nickname." << std::endl;
 	if (std::getline(std::cin, line))
 	{
 		contact[cnt].set_nickname(line);
 		std::cout << "Thank you" << std::endl;
 	}
+	detect_err_flg();
 	std::cout << "Write a number." << std::endl;
 	if (std::getline(std::cin, line))
 	{
 		contact[cnt].set_number(line);
 		std::cout << "Thank you" << std::endl;
 	}
+	detect_err_flg();
 	std::cout << "Write a darkest secret." << std::endl;
 	if (std::getline(std::cin, line))
 	{
 		contact[cnt].set_darkest_secret(line);
 		std::cout << "Thank you" << std::endl;
 	}
-	return true;
+	detect_err_flg();
 }
 
 std::string  Phonebook::replace_dot(std::string str)
@@ -90,16 +109,15 @@ void	Phonebook::display_contact_info(size_t cnt)
 	}
 }
 
-bool	Phonebook::search_command(size_t cnt)
+void	Phonebook::search_command(size_t cnt)
 {
 	if (cnt == 0)
 	{
 		std::cout << "First, run the ADD command." << std::endl;
-		return true;
+		return ;
 	}
 	display_lists(cnt);
 	display_contact_info(cnt);
-	return true;
 }
 
 void	Phonebook::delete_oldest_contact()
@@ -125,15 +143,11 @@ void	Phonebook::launch()
 				delete_oldest_contact();
 				cnt = 7;
 			}
-			if (add_command(cnt) == false)
-				break;
+			add_command(cnt);
 			cnt++;
 		}
 		else if (line == "SEARCH")
-		{
-			if (search_command(cnt) == false)
-				break;
-		}
+			search_command(cnt);
 		else if (line == "EXIT")
 		{
 			std::cout << "bye!" << std::endl;
@@ -146,4 +160,5 @@ void	Phonebook::launch()
 		}
 		std::cout << "Please enter the command(ex. ADD, SEARCH, EXIT)" << std::endl;
 	}
+	detect_err_flg();
 }

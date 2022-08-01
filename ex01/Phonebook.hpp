@@ -11,8 +11,9 @@ public:
 	void	launch();
 private:
 	Contact	contact[8];
-	bool	add_command(size_t cnt);
-	bool	search_command(size_t cnt);
+	void	detect_err_flg();
+	void	add_command(size_t cnt);
+	void	search_command(size_t cnt);
 	void	display_lists(size_t cnt);
 	std::string	replace_dot(std::string str);
 	void	display_contact_info(size_t cnt);
