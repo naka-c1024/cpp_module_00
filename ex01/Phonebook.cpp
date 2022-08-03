@@ -19,38 +19,68 @@ void	Phonebook::add_command(size_t cnt)
 {
 	std::string	line;
 	std::cout << "Write a first name." << std::endl;
-	if (std::getline(std::cin, line))
+	while (std::getline(std::cin, line))
 	{
+		if (line[0] == '\0')
+		{
+			std::cout << "write!!" << std::endl;
+			continue;
+		}
 		contact[cnt].set_first_name(line);
 		std::cout << "Thank you" << std::endl;
+		break;
 	}
 	detect_err_flg();
 	std::cout << "Write a last name." << std::endl;
-	if (std::getline(std::cin, line))
+	while (std::getline(std::cin, line))
 	{
+		if (line[0] == '\0')
+		{
+			std::cout << "write!!" << std::endl;
+			continue;
+		}
 		contact[cnt].set_last_name(line);
 		std::cout << "Thank you" << std::endl;
+		break;
 	}
 	detect_err_flg();
 	std::cout << "Write a nickname." << std::endl;
-	if (std::getline(std::cin, line))
+	while (std::getline(std::cin, line))
 	{
+		if (line[0] == '\0')
+		{
+			std::cout << "write!!" << std::endl;
+			continue;
+		}
 		contact[cnt].set_nickname(line);
 		std::cout << "Thank you" << std::endl;
+		break;
 	}
 	detect_err_flg();
 	std::cout << "Write a number." << std::endl;
-	if (std::getline(std::cin, line))
+	while (std::getline(std::cin, line))
 	{
+		if (line[0] == '\0')
+		{
+			std::cout << "write!!" << std::endl;
+			continue;
+		}
 		contact[cnt].set_number(line);
 		std::cout << "Thank you" << std::endl;
+		break;
 	}
 	detect_err_flg();
 	std::cout << "Write a darkest secret." << std::endl;
-	if (std::getline(std::cin, line))
+	while (std::getline(std::cin, line))
 	{
+		if (line[0] == '\0')
+		{
+			std::cout << "write!!" << std::endl;
+			continue;
+		}
 		contact[cnt].set_darkest_secret(line);
 		std::cout << "Thank you" << std::endl;
+		break;
 	}
 	detect_err_flg();
 }
