@@ -47,4 +47,4 @@ debug	: fclean $(OBJS)
 leak	:
 	leaks -quiet -atExit -- ./$(NAME)
 
-.PHONY	: all clean fclean re nm debug leak
+.PHONY	: all clean fclean re test download nm debug leak
